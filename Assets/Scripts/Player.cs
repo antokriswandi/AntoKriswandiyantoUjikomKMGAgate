@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -9,6 +10,8 @@ public class Player : MonoBehaviour
     private bool isAlive = true;
 
     [SerializeField] private GameObject peluruPrefabs;
+
+    public event Action<int, int> OnHPChanged;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -48,6 +51,7 @@ public class Player : MonoBehaviour
         if(isAlive)
         {
             HP -= damage;
+            OnHPChanged?.Invoke(HP, MaxHP);
             Debug.Log("HP sisa: "+HP+"/"+MaxHP);
         }
     }
