@@ -1,13 +1,19 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public int HP = 100;
     public int MaxHP;
     private float playerPositionY;
+    public static Player instance;
 
     [SerializeField] private GameObject peluruPrefabs;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Awake()
+    {
+        instance = this;
+    }
+    
     void Start()
     {
         playerPositionY = transform.position.y;
