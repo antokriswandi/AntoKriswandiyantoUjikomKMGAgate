@@ -46,6 +46,7 @@ public class Enemy : MonoBehaviour
     private void OnColliderWithPeluru(GameObject peluru)
     {
         Debug.Log("Add point = " + addPointValue);
+        Player.instance.AddScore(addPointValue);
         Destroy(peluru);
         Destroy(gameObject);
         isAlive = false;

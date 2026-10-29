@@ -8,10 +8,12 @@ public class Player : MonoBehaviour
     private float playerPositionY;
     public static Player instance;
     private bool isAlive = true;
+    public int score = 0;
 
     [SerializeField] private GameObject peluruPrefabs;
 
     public event Action<int, int> OnHPChanged;
+    public event Action OnScoreChanged;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -63,5 +65,11 @@ public class Player : MonoBehaviour
             isAlive = false;
             Destroy(gameObject);
         }
+    }
+
+    public void AddScore(int pointValue)
+    {
+        score += pointValue;
+        OnScoreChanged?.Invoke();
     }
 }
