@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] private GameObject peluruPrefabs;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip attackSfx;
 
     public event Action<int, int> OnHPChanged;
     public event Action OnScoreChanged;
@@ -46,6 +48,7 @@ public class Player : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             Instantiate(peluruPrefabs, transform.position, Quaternion.identity);
+            audioSource.PlayOneShot(attackSfx);
         }
     }
 
