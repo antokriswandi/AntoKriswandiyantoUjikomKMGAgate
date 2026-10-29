@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public int score = 0;
 
     [SerializeField] private GameObject peluruPrefabs;
+    [SerializeField] private GameManager gameManager;
 
     public event Action<int, int> OnHPChanged;
     public event Action OnScoreChanged;
@@ -64,6 +65,7 @@ public class Player : MonoBehaviour
         {
             isAlive = false;
             Destroy(gameObject);
+            gameManager.InisiateGameOver();
         }
     }
 
