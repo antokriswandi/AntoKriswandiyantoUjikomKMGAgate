@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
-    public int HP;
+    public int HP = 100;
     public int MaxHP;
     private float playerPositionY;
+
+    [SerializeField] private GameObject peluruPrefabs;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,11 +18,20 @@ public class NewMonoBehaviourScript : MonoBehaviour
     void Update()
     {
         PlayerMovement();
+        Fire();
     }
 
     private void PlayerMovement()
     {
         Vector3 mousePosition =Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = new Vector3(mousePosition.x, playerPositionY, 0);
+    }
+
+    private void Fire()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            Instantiate(peluruPrefabs, transform.position, Quaternion.identity);
+        }
     }
 }
