@@ -6,12 +6,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float enemySpeed = 6f;
     [SerializeField] private int addPointValue = 1;
     [SerializeField] private int damage = 1;
+    public GameObject playerGO;
     [SerializeField] private bool isAlive;
     private const string PELURUTAG_NAME = "Peluru";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         isAlive = true;
+        //cari game object berdasarkan type class nya untuk menggantikan instance awake
+        playerGO = GameObject.FindAnyObjectByType<Player>().gameObject;
     }
 
     // Update is called once per frame
