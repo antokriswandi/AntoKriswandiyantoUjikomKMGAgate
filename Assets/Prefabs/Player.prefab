@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8ef28c70179e0a4e8ecd06e8f62b742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
+  HP: 10
   MaxHP: 0
   peluruPrefabs: {fileID: 496039989110006310, guid: bf39fc00490163b4f886f61f3c1b98cd, type: 3}
 --- !u!61 &670994400209180418

@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int HP = 100;
+    public int HP = 10;
     public int MaxHP;
     private float playerPositionY;
     public static Player instance;
+    private bool isAlive = true;
 
     [SerializeField] private GameObject peluruPrefabs;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -13,7 +14,7 @@ public class Player : MonoBehaviour
     {
         instance = this;
     }
-    
+
     void Start()
     {
         playerPositionY = transform.position.y;
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
     {
         PlayerMovement();
         Fire();
+        CheckDie();
     }
 
     private void PlayerMovement()
@@ -38,6 +40,24 @@ public class Player : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             Instantiate(peluruPrefabs, transform.position, Quaternion.identity);
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if(isAlive)
+        {
+            HP -= damage;
+            Debug.Log("HP sisa: "+HP+"/"+MaxHP);
+        }
+    }
+
+    private void CheckDie()
+    {
+        if(HP <= 0)
+        {
+            isAlive = false;
+            Destroy(gameObject);
         }
     }
 }

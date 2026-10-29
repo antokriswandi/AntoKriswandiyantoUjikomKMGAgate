@@ -104,7 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpeed: 6
   addPointValue: 1
-  damage: 5
+  damage: 1
   isAlive: 0
 --- !u!50 &4063760809161169314
 Rigidbody2D:

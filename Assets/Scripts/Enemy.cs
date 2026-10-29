@@ -5,7 +5,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private float enemySpeed = 6f;
     [SerializeField] private int addPointValue = 1;
-    [SerializeField] private int damage = 5;
+    [SerializeField] private int damage = 1;
     [SerializeField] private bool isAlive;
     private const string PELURUTAG_NAME = "Peluru";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -57,13 +57,13 @@ public class Enemy : MonoBehaviour
         if(transform.position.y < yMax)
         {
             Destroy(gameObject);
-            Debug.Log("Take damage = " + damage);
+            Player.instance.TakeDamage(damage);
         }
     }
 
     private void OnColliderWithPlayer()
     {
-        Debug.Log("Take damage = " + damage);
+        Player.instance.TakeDamage(damage);
         Destroy(gameObject);
         isAlive = false;
     }
