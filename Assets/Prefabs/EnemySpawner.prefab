@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyList:
-  - {fileID: 8011163397034624376, guid: 063204302d531ae458d57cd7528014e5, type: 3}
-  - {fileID: 2093474995610422619, guid: e01941cdf1198ca4ca2d35003f4e682f, type: 3}
-  - {fileID: 8264633750106876342, guid: 0eb24fcec0b82d4419e72e03ab61c506, type: 3}
+  - {fileID: 5179646876106349612, guid: 063204302d531ae458d57cd7528014e5, type: 3}
+  - {fileID: 5598322298642294325, guid: e01941cdf1198ca4ca2d35003f4e682f, type: 3}
+  - {fileID: 4213390039136508668, guid: 0eb24fcec0b82d4419e72e03ab61c506, type: 3}
   spawninterfal: 2
-  enemySpeed: 6
+  player: {fileID: 6106643051811400970, guid: c89034a6ecf0d5545bfbd7837e7138b6, type: 3}

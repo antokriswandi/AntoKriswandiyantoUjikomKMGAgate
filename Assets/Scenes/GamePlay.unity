@@ -2003,6 +2003,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8631197468652771250, guid: 7aa5e99b58c4c294a93aff56fffff412, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1051327604}
+    - target: {fileID: 8631197468652771250, guid: 7aa5e99b58c4c294a93aff56fffff412, type: 3}
       propertyPath: spawninterfal
       value: 1
       objectReference: {fileID: 0}

@@ -6,15 +6,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float enemySpeed = 6f;
     [SerializeField] private int addPointValue = 1;
     [SerializeField] private int damage = 1;
-    public GameObject playerGO;
     [SerializeField] private bool isAlive;
     private const string PELURUTAG_NAME = "Peluru";
+    private Player player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         isAlive = true;
-        //cari game object berdasarkan type class nya untuk menggantikan instance awake
-        playerGO = GameObject.FindAnyObjectByType<Player>().gameObject;
     }
 
     // Update is called once per frame
@@ -46,10 +44,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void Initialize(Player playerReference)
+    {
+        player = playerReference;
+    }
+
     private void OnColliderWithPeluru(GameObject peluru)
     {
-        Debug.Log("Add point = " + addPointValue);
-        Player.instance.AddScore(addPointValue);
+        player.AddScore(addPointValue);
         Destroy(peluru);
         Destroy(gameObject);
         isAlive = false;
@@ -61,13 +63,13 @@ public class Enemy : MonoBehaviour
         if(transform.position.y < yMax)
         {
             Destroy(gameObject);
-            Player.instance.TakeDamage(damage);
+            player.TakeDamage(damage);
         }
     }
 
     private void OnColliderWithPlayer()
     {
-        Player.instance.TakeDamage(damage);
+        player.TakeDamage(damage);
         Destroy(gameObject);
         isAlive = false;
     }
